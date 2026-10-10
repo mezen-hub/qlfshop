@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171717">
+    <meta name="description" content="QLF SHOP — Collection streetwear. T-shirts à 55 DT.">
+    <title>QLF SHOP — La boutique</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="announcement">
+        QLF SHOP — COLLECTION STREETWEAR
+        <span>•</span> 55 DT LE T-SHIRT
+    </div>
+
+    <header class="header">
+        <a class="logo" href="#accueil" aria-label="QLF SHOP accueil">
+            QLF<span>.</span>
+        </a>
+
+        <nav class="nav">
+            <a href="#accueil">Accueil</a>
+            <a href="#collection">Collection</a>
+            <a href="#histoire">Notre univers</a>
+        </nav>
+
+        <button class="cart-trigger" id="open-cart" type="button">
+            Panier <span id="cart-count">0</span>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero" id="accueil">
+            <div class="hero-content">
+                <p class="eyebrow">L'UNIVERS QLF · COLLECTION</p>
+                <h1>PLUS QU'UN STYLE.<br><span>UN ÉTAT D'ESPRIT.</span></h1>
+                <p class="hero-description">
+                    Une collection streetwear inspirée par la musique,
+                    la rue et ceux qui restent fidèles à leur univers.
+                </p>
+                <a href="#collection" class="button button-light">
+                    DÉCOUVRIR LA COLLECTION <span>↗</span>
+                </a>
+                <div class="hero-bottom">
+                    <span>COLLECTION DISPONIBLE</span>
+                    <span>55 DT / T-SHIRT</span>
+                </div>
+            </div>
+
+            <div class="hero-art" aria-label="QLF, collection streetwear">
+                <div class="hero-circle"></div>
+                <div class="hero-word">QLF</div>
+                <div class="hero-caption">
+                    <span>STREETWEAR</span>
+                    <span>ÉDITION COLLECTION</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro-strip">
+            <span>AUTHENTICITÉ</span>
+            <span class="strip-star">✳</span>
+            <span>IDENTITÉ</span>
+            <span class="strip-star">✳</span>
+            <span>STREET CULTURE</span>
+            <span class="strip-star">✳</span>
+            <span>QLF SHOP</span>
+        </section>
+
+        <section class="shop section" id="collection">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">SÉLECTION QLF</p>
+                    <h2>LA COLLECTION<span>.</span></h2>
+                </div>
+                <p class="section-note">10 modèles · 55 DT chacun</p>
+            </div>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="collection-filter">Collection</label>
+                    <select id="collection-filter">
+                        <option value="all">Toutes les collections</option>
+                        <option value="dans-legende">Dans la légende</option>
+                        <option value="deux-freres">Deux frères</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="color-filter">Couleur</label>
+                    <select id="color-filter">
+                        <option value="all">Toutes les couleurs</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Rose">Rose</option>
+                        <option value="Turquoise">Turquoise</option>
+                        <option value="Blanc">Blanc</option>
+                        <option value="Noir">Noir</option>
+                        <option value="Bleu marine">Bleu marine</option>
+                    </select>
+                </div>
+
+                <span class="product-count" id="product-count">10 articles</span>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                <!-- Les produits sont créés par script.js -->
+            </div>
+        </section>
+
+        <section class="manifesto" id="histoire">
+            <p class="eyebrow">L'ESPRIT DE LA COLLECTION</p>
+            <h2>RESTE FIDÈLE<br>À TON <span>UNIVERS.</span></h2>
+            <p>
+                Des pièces streetwear pensées pour affirmer ton style.
+                Choisis ton modèle, ta couleur et ta taille.
+            </p>
+            <a href="#collection" class="button button-dark">
+                TROUVER MON T-SHIRT ↗
+            </a>
+        </section>
+
+        <section class="info-grid">
+            <article class="info-card">
+                <span class="info-number">01</span>
+                <h3>TON STYLE</h3>
+                <p>Deux collections, plusieurs couleurs, ton identité.</p>
+            </article>
+            <article class="info-card">
+                <span class="info-number">02</span>
+                <h3>PRIX UNIQUE</h3>
+                <p>Chaque t-shirt de la collection est à 55 DT.</p>
+            </article>
+            <article class="info-card">
+                <span class="info-number">03</span>
+                <h3>COMMANDE SIMPLE</h3>
+                <p>Prépare ton panier et envoie ta commande sur WhatsApp.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a class="logo footer-logo" href="#accueil">QLF<span>.</span></a>
+        <p>TON STYLE. TON UNIVERS.</p>
+        <a href="https://www.instagram.com/qlf.shopp/" target="_blank" rel="noopener noreferrer">
+            INSTAGRAM ↗
+        </a>
+        <small>© <span id="year"></span> QLF SHOP. Tous droits réservés.</small>
+        <small class="disclaimer">
+            Boutique indépendante, non affiliée officiellement à PNL.
+        </small>
+    </footer>
+
+    <!-- Fenêtre des détails du produit -->
+    <div class="modal-backdrop" id="product-modal" hidden>
+        <section class="modal product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="close-button" data-close="product-modal" type="button" aria-label="Fermer">×</button>
+
+            <div class="modal-image-wrap">
+                <img id="modal-image" src="" alt="">
+            </div>
+
+            <div class="modal-details">
+                <p class="eyebrow" id="modal-collection"></p>
+                <h2 id="modal-title"></h2>
+                <p class="modal-price">55 DT</p>
+                <p class="modal-color" id="modal-color"></p>
+
+                <label for="modal-size">Choisis ta taille</label>
+                <select id="modal-size">
+                    <option value="">Sélectionner une taille</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+
+                <label for="modal-quantity">Quantité</label>
+                <input id="modal-quantity" type="number" min="1" max="20" value="1">
+
+                <button class="button button-dark full-button" id="add-to-cart" type="button">
+                    AJOUTER AU PANIER — 55 DT
+                </button>
+                <p class="form-message" id="product-message" aria-live="polite"></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Panier -->
+    <div class="modal-backdrop" id="cart-modal" hidden>
+        <section class="modal cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+            <button class="close-button" data-close="cart-modal" type="button" aria-label="Fermer">×</button>
+
+            <p class="eyebrow">TA SÉLECTION</p>
+            <h2 id="cart-title">MON PANIER<span>.</span></h2>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div class="cart-empty" id="cart-empty">
+                Ton panier est vide pour le moment.
+                <button class="text-button" id="continue-shopping" type="button">
+                    Découvrir les t-shirts ↗
+                </button>
+            </div>
+
+            <div class="cart-summary" id="cart-summary" hidden>
+                <div class="summary-line">
+                    <span>Nombre d'articles</span>
+                    <span id="summary-quantity">0</span>
+                </div>
+                <div class="summary-line total-line">
+                    <span>TOTAL</span>
+                    <span id="summary-total">0 DT</span>
+                </div>
+                <p class="shipping-note">
+                    Les frais de livraison seront à confirmer avec la boutique.
+                </p>
+
+                <label for="customer-name">Ton nom (facultatif)</label>
+                <input id="customer-name" type="text" maxlength="80" placeholder="Nom et prénom">
+
+                <label for="customer-address">Adresse de livraison</label>
+                <textarea id="customer-address" rows="2" maxlength="300" placeholder="Adresse, ville..."></textarea>
+
+                <label for="customer-note">Remarque (facultatif)</label>
+                <textarea id="customer-note" rows="2" maxlength="300"
+                    placeholder="Une précision sur ta commande..."></textarea>
+
+                <button class="button button-dark full-button" id="checkout-whatsapp" type="button">
+                    COMMANDER SUR WHATSAPP ↗
+                </button>
+                <p class="checkout-help">
+                    WhatsApp s'ouvrira avec le récapitulatif de ta commande.
+                    Tu pourras vérifier les détails avant de l'envoyer.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+
+</html>
