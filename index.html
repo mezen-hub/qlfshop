@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11120f">
+  <meta name="description" content="QLF SHOP — Pièces streetwear. Deux collections, dix modèles.">
+  <title>QLF SHOP — Independent Streetwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="backend-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="topline"><span>QLF SHOP / TUNISIA</span><span>INDEPENDENT STREETWEAR — 2026</span><span>55 DT / TEE</span></div>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="QLF Shop accueil">QLF<span>®</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="#collections">COLLECTIONS</a><a href="#shop">SHOP</a><a href="#about">À PROPOS</a>
+    </nav>
+    <button class="bag-button" id="open-bag" aria-label="Ouvrir le panier">BAG <span id="bag-count">0</span><i></i></button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker"><b></b> NOT MADE TO FIT IN</p>
+        <h1>THE<br>QLF<br><em>STATE.</em></h1>
+        <div class="hero-foot">
+          <p>Une attitude. Deux collections.<br>Ton propre uniforme.</p>
+          <a class="round-link" href="#shop" aria-label="Découvrir les produits">↘</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-frame">
+          <img src="https://raw.githubusercontent.com/mezen-hub/qlfshop/main/qlf.jpeg" alt="Visuel QLF Shop" onerror="this.style.display='none'">
+          <div class="hero-stamp">QLF<br><small>COLLECTIVE<br>SPIRIT</small></div>
+          <span class="visual-index">FIG. 001 — QLF UNIVERSE</span>
+        </div>
+        <div class="side-note">COLLECTION<br>01 / 02<br><span>SCROLL TO EXPLORE ↓</span></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="QLF Shop"><div>STAY TRUE ✳ MOVE DIFFERENT ✳ QLF SHOP ✳ STAY TRUE ✳ MOVE DIFFERENT ✳ QLF SHOP ✳</div></div>
+
+    <section class="collection-intro" id="collections">
+      <div><p class="kicker">01 — THE ARCHIVE</p><h2>DEUX CHAPITRES.<br><span>UN MÊME ESPRIT.</span></h2></div>
+      <p class="intro-note">Des pièces inspirées par la musique, la rue et une culture qui ne ressemble à aucune autre.</p>
+    </section>
+
+    <section class="collection-panels">
+      <a href="#shop" class="collection-panel panel-one" data-jump="dans-legende">
+        <img src="https://raw.githubusercontent.com/mezen-hub/qlfshop/main/dans-legende-noir.jpg" alt="Collection Dans la légende" loading="lazy">
+        <span class="panel-number">COLLECTION 01</span><span class="panel-title">DANS LA<br><i>LÉGENDE.</i></span><span class="panel-arrow">↗</span>
+      </a>
+      <a href="#shop" class="collection-panel panel-two" data-jump="deux-freres">
+        <img src="https://raw.githubusercontent.com/mezen-hub/qlfshop/main/deux-freres-noir.jpg" alt="Collection Deux frères" loading="lazy">
+        <span class="panel-number">COLLECTION 02</span><span class="panel-title">DEUX<br><i>FRÈRES.</i></span><span class="panel-arrow">↗</span>
+      </a>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="shop-heading"><div><p class="kicker">02 — SELECT YOUR PIECE</p><h2>THE DROP<span>.</span></h2></div><p>10 MODELS / 55 DT EACH</p></div>
+      <div class="shop-tools">
+        <div class="filter-tabs" role="group" aria-label="Filtrer les collections">
+          <button class="filter active" data-filter="all">TOUT <sup>10</sup></button>
+          <button class="filter" data-filter="dans-legende">DANS LA LÉGENDE <sup>05</sup></button>
+          <button class="filter" data-filter="deux-freres">DEUX FRÈRES <sup>05</sup></button>
+        </div>
+        <label class="color-filter">COULEUR
+          <select id="color-filter"><option value="all">Toutes</option><option>Gris</option><option>Rose</option><option>Turquoise</option><option>Blanc</option><option>Noir</option><option>Bleu marine</option></select>
+        </label>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <section class="manifesto" id="about">
+      <div class="manifesto-mark">Q<span>LF</span></div>
+      <div><p class="kicker">03 — THE MINDSET</p><h2>NO COPY.<br>JUST <em>IDENTITY.</em></h2><p>QLF SHOP est une boutique indépendante inspirée par un univers musical et une culture streetwear. Choisis ta pièce, ta couleur, ta taille. Le reste se passe avec nous.</p><a href="https://www.instagram.com/qlf.shopp/" target="_blank" rel="noopener">FOLLOW THE UNIVERSE ↗</a></div>
+    </section>
+  </main>
+
+  <footer><a class="wordmark" href="#top">QLF<span>®</span></a><span>INDEPENDENT STREETWEAR / TUNISIA</span><a href="https://www.instagram.com/qlf.shopp/" target="_blank" rel="noopener">INSTAGRAM ↗</a><small>© <span id="year"></span> QLF SHOP. Boutique indépendante, non affiliée officiellement à PNL. · <a href="admin.html">ADMIN</a></small></footer>
+
+  <div class="overlay" id="product-overlay" hidden>
+    <section class="product-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <button class="close" data-close="product-overlay" aria-label="Fermer">×</button>
+      <div class="dialog-image"><img id="dialog-image" src="" alt=""></div>
+      <div class="dialog-content"><p class="kicker" id="dialog-collection"></p><h2 id="dialog-title"></h2><p class="dialog-price">55 DT</p><p id="dialog-color"></p>
+        <label for="dialog-size">TAILLE</label><select id="dialog-size"><option value="">Choisir une taille</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <label for="dialog-qty">QUANTITÉ</label><input id="dialog-qty" type="number" min="1" max="20" value="1">
+        <button class="add-button" id="add-item">AJOUTER AU PANIER — 55 DT</button><p class="message" id="dialog-message" aria-live="polite"></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="bag-overlay" id="bag-overlay" hidden>
+    <button class="scrim" data-close="bag-overlay" aria-label="Fermer le panier"></button>
+    <aside class="bag-drawer" aria-label="Panier">
+      <div class="bag-head"><div><p class="kicker">YOUR SELECTION</p><h2>THE BAG<span>.</span></h2></div><button class="close" data-close="bag-overlay" aria-label="Fermer">×</button></div>
+      <div id="bag-items" class="bag-items"></div>
+      <p class="empty-bag" id="empty-bag">Ton panier est encore vide.</p>
+      <div class="bag-checkout" id="bag-checkout" hidden>
+        <div class="total-line"><span>TOTAL PRODUITS</span><strong id="bag-total">0 DT</strong></div>
+        <p>Les frais de livraison seront confirmés sur WhatsApp.</p>
+        <label for="buyer-name">NOM (FACULTATIF)</label><input id="buyer-name" maxlength="80" placeholder="Nom et prénom">
+        <label for="buyer-phone">TÉLÉPHONE (FACULTATIF)</label><input id="buyer-phone" type="tel" maxlength="40" placeholder="+216 ...">
+        <label for="buyer-address">ADRESSE DE LIVRAISON</label><textarea id="buyer-address" rows="2" maxlength="300" placeholder="Adresse, ville..."></textarea>
+        <button id="whatsapp-order" class="add-button">FINALISER SUR WHATSAPP ↗</button>
+      </div>
+    </aside>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
