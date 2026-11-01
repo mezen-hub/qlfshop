@@ -6,15 +6,15 @@ Boutique statique compatible GitHub Pages / Vercel, avec catalogue connecté à 
 
 - `index.html`, `style.css`, `script.js` : boutique Chrome.
 - `admin.html`, `admin.css`, `admin.js` : tableau de bord privé (`/admin.html`).
-- `backend-config.js` : identifiants publics de connexion Supabase à renseigner.
+- `backend-config.js` : déjà prérempli avec l’URL du projet et la clé publishable fournies.
 - `supabase-schema.sql` : tables, règles de sécurité (RLS), catalogue initial et rôle administrateur.
 
 ## Installation du backend (à faire une seule fois)
 
 1. Crée un projet sur https://supabase.com et attends qu'il soit prêt.
 2. Dans Supabase, ouvre **SQL Editor > New query**. Copie tout le contenu de `supabase-schema.sql`, puis clique sur **Run**.
-3. Ouvre **Project Settings > API**. Copie le **Project URL** et la clé **anon / publishable** (jamais la clé `service_role`).
-4. Ouvre `backend-config.js` et remplace les deux valeurs d'exemple :
+3. La connexion est déjà renseignée dans `backend-config.js` avec les informations que tu as envoyées. L’URL utilisée est l’adresse racine `https://hvoefhdbblxepgvbwbbr.supabase.co` (sans `/rest/v1/`). Ne remplace rien sauf si tu changes de projet.
+4. Tu peux passer à la création des tables à l’étape 2 :
 
    ```js
    window.QLF_CONFIG = {
@@ -56,4 +56,4 @@ Les dix références initiales reprennent le catalogue intégré à la version p
 
 ## Important
 
-Le ZIP contient le code complet et le SQL prêt à exécuter, mais il n'est pas encore relié à ton compte Supabase : il faut effectuer les étapes ci-dessus avec les identifiants de TON projet. Tant que `backend-config.js` contient les valeurs d'exemple, la boutique garde son catalogue local et l'admin affiche la configuration requise.
+Le ZIP contient maintenant l’URL et la clé publishable de ton projet. Il reste à exécuter `supabase-schema.sql`, puis à créer ton compte administrateur et lui attribuer le rôle `admin` comme indiqué plus haut. Tant que ces étapes ne sont pas faites, la gestion des produits et commandes ne sera pas opérationnelle.

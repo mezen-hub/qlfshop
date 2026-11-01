@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111111"><title>QLF SHOP — Administration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="backend-config.js" defer></script><script src="admin.js" defer></script>
+</head>
+<body>
+  <header class="admin-top"><a href="index.html" class="logo">QLF<span>®</span></a><span>CHROME / ADMINISTRATION</span><button id="logout" class="button ghost" hidden>SE DÉCONNECTER</button></header>
+  <main class="admin-main">
+    <section id="setup-warning" class="panel" hidden><p class="eyebrow">CONFIGURATION REQUISE</p><h1>Connecte ta base Supabase.</h1><p>Ouvre <code>backend-config.js</code> et ajoute l'URL de ton projet ainsi que ta clé anon/public. Suis le guide README.</p></section>
+    <section id="login-panel" class="panel login-panel" hidden><p class="eyebrow">ESPACE PRIVÉ</p><h1>QLF <em>CONTROL.</em></h1><p class="muted">Connexion réservée à l'administrateur.</p>
+      <form id="login-form"><label for="email">EMAIL ADMIN</label><input id="email" type="email" autocomplete="username" required placeholder="admin@qlfshop.tn"><label for="password">MOT DE PASSE</label><input id="password" type="password" autocomplete="current-password" required placeholder="••••••••"><button class="button primary" type="submit">SE CONNECTER ↗</button><p id="login-error" class="error" role="alert"></p></form>
+    </section>
+    <section id="denied-panel" class="panel" hidden><p class="eyebrow">ACCÈS REFUSÉ</p><h1>Compte non autorisé.</h1><p class="muted">Cette adresse n'a pas le rôle administrateur QLF SHOP. Ajoute son UUID dans la table user_roles via Supabase.</p><button id="denied-logout" class="button ghost">SE DÉCONNECTER</button></section>
+    <section id="dashboard" hidden>
+      <div class="welcome"><div><p class="eyebrow">QLF SHOP / BACK OFFICE</p><h1>CONTROL <em>ROOM.</em></h1><p class="muted" id="admin-email"></p></div><div class="stats"><div><strong id="product-count">—</strong><span>PRODUITS</span></div><div><strong id="order-count">—</strong><span>COMMANDES</span></div></div></div>
+      <div class="admin-grid">
+        <section class="panel"><div class="section-head"><div><p class="eyebrow">01 — CATALOGUE</p><h2>PRODUITS</h2></div><button id="new-product" class="button ghost">+ NOUVEAU</button></div>
+          <form id="product-form" class="product-form">
+            <input id="product-id" type="hidden"><div class="form-grid"><div class="wide"><label for="p-name">NOM</label><input id="p-name" required maxlength="100" placeholder="Nom du produit"></div>
+            <div><label for="p-collection">COLLECTION</label><select id="p-collection"><option value="dans-legende">Dans la légende</option><option value="deux-freres">Deux frères</option></select></div>
+            <div><label for="p-color">COULEUR</label><input id="p-color" required maxlength="50" placeholder="Noir"></div>
+            <div><label for="p-price">PRIX (DT)</label><input id="p-price" type="number" min="0" step="1" value="55" required></div>
+            <div><label for="p-stock">STOCK</label><input id="p-stock" type="number" min="0" step="1" value="10" required></div>
+            <div class="wide"><label for="p-image">URL DE L'IMAGE</label><input id="p-image" type="url" required placeholder="https://..."></div>
+            <div class="wide checkline"><label><input id="p-active" type="checkbox" checked> Produit visible sur la boutique</label></div></div>
+            <div class="actions"><button class="button primary" type="submit">ENREGISTRER</button><button id="cancel-edit" class="button ghost" type="button">EFFACER</button></div><p id="product-message" class="message" aria-live="polite"></p>
+          </form><div id="products-list" class="data-list"></div>
+        </section>
+        <section class="panel orders-panel"><div class="section-head"><div><p class="eyebrow">02 — VENTES</p><h2>COMMANDES</h2></div><button id="refresh-orders" class="button ghost">ACTUALISER ↻</button></div><div id="orders-list" class="data-list"><p class="muted">Chargement des commandes…</p></div></section>
+      </div>
+    </section>
+  </main>
+  <footer>QLF SHOP · PRIVATE ADMINISTRATION · CHROME EDITION</footer>
+</body></html>
