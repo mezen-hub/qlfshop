@@ -28,11 +28,11 @@ function visibleProducts(){const color=$("#color-filter").value;return products.
 function renderProducts(){
  const list=visibleProducts();
  $("#product-grid").innerHTML=list.map(p=>`<article class="product-card">
-  <div class="product-image"><img src="${imageUrl(p)}" alt="${safe(p.name)} — ${safe(p.color)}" loading="lazy"><span class="product-tag">${money(productPrice(p))}</span><button class="quick-add" data-product="${p.id}">CHOISIR MA TAILLE +</button></div>
+  <div class="product-image"><img src="${imageUrl(p)}" alt="${safe(p.name)} — ${safe(p.color)}" loading="lazy"><span class="product-tag">${money(productPrice(p))}</span>${Number(p.stock)<=0?'<span class="product-tag" style="top:48px;left:12px;right:auto;background:#9b2525;color:#fff">ÉPUISÉ</span>':''}<button class="quick-add" data-product="${p.id}" ${Number(p.stock)<=0?'disabled':''}>${Number(p.stock)<=0?'RUPTURE DE STOCK':'CHOISIR MA TAILLE +'}</button></div>
   <div class="product-meta"><h3>${safe(p.name)}</h3><strong>${money(productPrice(p))}</strong></div><div class="product-sub"><span>${safe(p.label)}</span><span>${safe(p.color).toUpperCase()}</span></div></article>`).join("");
 }
 function openProduct(id){
- selected=products.find(p=>p.id===id); if(!selected)return;
+ selected=products.find(p=>p.id===id); if(!selected)return; if(Number(selected.stock)<=0){toast("Ce produit est en rupture de stock.");return;}
  $("#dialog-image").src=imageUrl(selected);$("#dialog-image").alt=`${selected.name} — ${selected.color}`;
  $("#dialog-title").textContent=selected.name;$("#dialog-collection").textContent=selected.label;$("#dialog-color").textContent=`COULEUR : ${selected.color.toUpperCase()}`;
  $("#dialog-size").value="";$("#dialog-qty").value=1;$("#dialog-message").textContent="";updateAddPrice();
@@ -56,7 +56,7 @@ document.addEventListener("click",e=>{
 $("#color-filter").addEventListener("change",renderProducts);
 $("#dialog-qty").addEventListener("input",updateAddPrice);
 $("#add-item").addEventListener("click",()=>{
- if(!selected)return;const size=$("#dialog-size").value,qty=parseInt($("#dialog-qty").value);
+ if(!selected)return;if(Number(selected.stock)<=0){$("#dialog-message").textContent="Ce produit est en rupture de stock.";return;}const size=$("#dialog-size").value,qty=parseInt($("#dialog-qty").value);
  if(!["XS","S","M","L","XL"].includes(size)){$("#dialog-message").textContent="Choisis une taille.";return;}
  if(!Number.isInteger(qty)||qty<1||qty>20){$("#dialog-message").textContent="Quantité invalide (1 à 20).";return;}
  const found=cart.find(x=>x.id===selected.id&&x.size===size);
